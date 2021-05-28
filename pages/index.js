@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import { isMobile } from "react-device-detect";
 
 export default function Home() {
-  const [showGyro, setShowGyro] = useState(true);
+  const [showGyro, setShowGyro] = useState(false);
 
   useEffect(() => {
     if (isMobile) {
@@ -26,8 +26,8 @@ export default function Home() {
       </Head>
       <button
         onClick={() => {
-          setShowGyro(false);
-          setTimeout(() => setShowGyro(true), 1000);
+          setShowGyro(true);
+          // setTimeout(() => setShowGyro(true), 1000);
         }}>
         Show gyro
       </button>

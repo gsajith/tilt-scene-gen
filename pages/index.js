@@ -35,7 +35,7 @@ export default function Home() {
         <Tilt gyroscope={true} tiltMaxAngleX={45} tiltMaxAngleY={45}>
           <img
             src="https://i.imgur.com/92G2k5D.jpg"
-            style={{ width: "90vw", maxWidth: 500 }}
+            style={{ width: "90vw", maxWidth: 500, background: "red" }}
           />
         </Tilt>
       )}

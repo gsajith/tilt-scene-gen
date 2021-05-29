@@ -3,18 +3,21 @@ import { isMobile } from "react-device-detect";
 import styled from "styled-components";
 
 const PreviewsContainer = styled.div`
+  opacity: ${(props) => (props.fade ? 0.15 : 1)};
   width: 100%;
   max-width: 100%;
   z-index: 1;
-  padding: 8px;
+  padding: 8px 0px;
   overflow-x: scroll;
   white-space: nowrap;
   min-height: 96px;
+  transition: opacity 150ms ease-in-out;
 `;
 
 const PreviewContainer = styled.button`
   border: ${(props) =>
-    props.selected ? "2px solid black" : "1px solid rgba(0, 0, 0, 0.1)"};
+    props.selected ? "1px solid black" : "1px solid rgba(0, 0, 0, 0.3)"};
+  box-shadow: ${(props) => (props.selected ? "2px 2px 0px black" : "none")};
   padding: 4px;
   width: 80px;
   height: 80px;
@@ -49,6 +52,7 @@ const PreviewImage = styled.img`
 `;
 
 const CloseButton = styled.button`
+  border: 1px solid black;
   width: 24px;
   height: 24px;
   border-radius: 12px;
@@ -69,20 +73,20 @@ const ImagePreviews = ({
   selectedImage,
   setSelectedImage,
   setImages,
+  fade,
 }) => {
   return (
-    <PreviewsContainer>
+    <PreviewsContainer fade={fade}>
       {images.map((image, index) => (
         <PreviewContainer
+          key={image.key + "-preview"}
           isMobile={isMobile}
           selected={selectedImage === index}
           onClick={(e) => {
-            console.log("onclickbutton", e.target);
             e.stopPropagation();
             if (selectedImage === index) {
               setSelectedImage(null);
               document.activeElement.blur();
-              console.log("blurring");
             } else {
               setSelectedImage(index);
             }

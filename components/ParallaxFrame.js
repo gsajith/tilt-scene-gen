@@ -7,7 +7,8 @@ const ParallaxFrame = styled(Tilt)`
   max-width: 500px;
   position: relative;
   border: 1px solid black;
-  outline: 500px solid white;
+  outline: ${(props) => (props.mattingWidth ? props.mattingWidth : 0)}px solid
+    white;
 `;
 
 export default ParallaxFrame;

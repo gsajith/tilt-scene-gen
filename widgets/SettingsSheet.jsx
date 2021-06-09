@@ -81,14 +81,14 @@ const SettingsSheet = ({
         </Label>
         <Slider
           min={0}
-          max={2000}
+          max={3000}
           id="mattingWidth"
           value={mattingWidth}
           onChange={(newMattingWidth) => {
             setMattingWidth(newMattingWidth);
           }}
         />
-        {mattingWidth > 1300 && (
+        {mattingWidth > 2500 && (
           <Warning>This can cause lag. Maybe don't make it so big.</Warning>
         )}
       </SettingsContainer>

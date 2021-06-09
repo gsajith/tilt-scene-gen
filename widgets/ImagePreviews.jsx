@@ -3,7 +3,7 @@ import { isMobile } from "react-device-detect";
 import styled from "styled-components";
 
 const PreviewsContainer = styled.div`
-  opacity: ${(props) => (props.fade ? 0.15 : 1)};
+  opacity: ${(props) => (props.fade ? 0 : 1)};
   width: 100%;
   max-width: 100%;
   z-index: 1;
